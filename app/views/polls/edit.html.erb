@@ -1,0 +1,26 @@
+<h1>Editing poll</h1>
+
+<%= error_messages_for :poll %>
+<% form_for(:poll, :url => polls_path, :html => { :multipart => true }) do |f| -%>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :before_pic %><br />
+	<%= f.file_field :before_pic %>
+</p>
+<p>
+	<%= f.label :after_pic %><br />
+	<%= f.file_field :after_pic %>
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description %>
+</p>
+<p>
+  <%= f.submit 'Create' %>
+</p>
+<% end -%>
+
+
+<%= link_to 'Show', @poll %> |
+<%= link_to 'Back', polls_path %>

@@ -1,0 +1,20 @@
+<p>
+  <b>Title:</b>
+  <%=h @poll.title %>
+</p>
+<p>
+	<b>Before Pic:</b>
+	<%= image_tag @poll.before_pic.url(:large) %>
+</p>
+<p>
+	<b>After Pic:</b>
+	<%= image_tag @poll.after_pic.url(:large) %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @poll.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>
