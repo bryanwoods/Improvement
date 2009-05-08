@@ -1,4 +1,5 @@
 rspec
 rspec-rails
 aws-s3
+right_aws
 thoughtbot-paperclip --version '>= 2.2.8' --source gems.github.com
