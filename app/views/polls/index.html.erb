@@ -1,24 +1,11 @@
-<h1>Listing polls</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
-
 <% @polls.each do |poll| %>
-  <tr>
-    <td><%=h poll.title %></td><br />
-		<td><%= image_tag poll.before_pic.url(:large) %></td><br />
-		<td><%= image_tag poll.after_pic.url(:large) %></td><br />
-    <td><%=h poll.description %></td><br />
-    <td><%= link_to 'Show', poll %></td>
-    <td><%= link_to 'Edit', edit_poll_path(poll) %></td>
-    <td><%= link_to 'Destroy', poll, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<h2><%=h poll.title %></h2>
+	<p>
+		<%= image_tag poll.before_pic.url(:large) %>
+		<%= image_tag poll.after_pic.url(:large) %>
+	</p>
+  <h3><%=h poll.description %></h3>
 <% end %>
-</table>
-
 <br />
 
-<%= link_to 'New poll', new_poll_path %>
+<%= link_to 'Want to create a poll of your own?', new_poll_path %>

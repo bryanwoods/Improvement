@@ -1,20 +1,17 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 include AuthenticatedTestHelper
 
-describe Poll do
-  fixtures :polls
-  describe 'being created' do
-    before do
-      @poll = nil
-      @creating_poll = lambda do
-        violated "#{@poll.errors.full_messages.to_sentence}" if @poll.new_record?
-      end
-    end
+context "A poll (in general)" do
+  setup do
+    @poll = Poll.new
   end
   
-  it 'requires title' do
+  specify "should be invalid without a title" do
   end
-
-  it "should create a new instance given valid attributes" do
+  
+  specify "should be invalid without a before_pic" do
+  end
+  
+  specify "should be invalid without an after_pic" do
   end
 end
