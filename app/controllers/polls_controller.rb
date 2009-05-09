@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_filter :login_required
+  # before_filter :login_required
   # GET /polls
   # GET /polls.xml
   def index
