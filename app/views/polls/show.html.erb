@@ -3,6 +3,10 @@
 	<%= image_tag @poll.before_pic.url(:large) %>
 	<%= image_tag @poll.after_pic.url(:large) %>
 </p>
+<p>
+	<%= link_to "Vote for Before Pic", @poll.before_pic.url %> | 
+	<%= link_to "Vote for After Pic", @poll.after_pic.url %>
+</p>
 <h3><%=h @poll.description %></h3>
 
 <%= link_to 'Back Home', polls_path %>
