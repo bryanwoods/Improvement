@@ -1,0 +1,2 @@
+module NoVotesHelper
+end

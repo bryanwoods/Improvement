@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090508210227) do
+ActiveRecord::Schema.define(:version => 20090511221436) do
+
+  create_table "no_votes", :force => true do |t|
+    t.integer  "poll_id"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "polls", :force => true do |t|
     t.string   "title"
@@ -39,5 +46,12 @@ ActiveRecord::Schema.define(:version => 20090508210227) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "yes_votes", :force => true do |t|
+    t.integer  "poll_id"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

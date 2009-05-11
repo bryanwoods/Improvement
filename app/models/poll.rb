@@ -1,4 +1,6 @@
 class Poll < ActiveRecord::Base
+  has_many :yes_votes
+  has_many :no_votes
   has_attached_file :before_pic,
                      :styles => { :large => "800x600>",
                                   :thumb => "400x300>" }

@@ -1,0 +1,13 @@
+<p>
+  <b>Poll:</b>
+  <%=h @no_vote.poll_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @no_vote.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_no_vote_path(@no_vote) %> |
+<%= link_to 'Back', no_votes_path %>

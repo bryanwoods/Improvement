@@ -1,0 +1,20 @@
+<h1>Editing no_vote</h1>
+
+<% form_for(@no_vote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :poll_id %><br />
+    <%= f.text_field :poll_id %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @no_vote %> |
+<%= link_to 'Back', no_votes_path %>

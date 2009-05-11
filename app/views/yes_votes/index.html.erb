@@ -1,0 +1,22 @@
+<h1>Listing yes_votes</h1>
+
+<table>
+  <tr>
+    <th>Poll</th>
+    <th>Body</th>
+  </tr>
+
+<% @yes_votes.each do |yes_vote| %>
+  <tr>
+    <td><%=h yes_vote.poll_id %></td>
+    <td><%=h yes_vote.body %></td>
+    <td><%= link_to 'Show', yes_vote %></td>
+    <td><%= link_to 'Edit', edit_yes_vote_path(yes_vote) %></td>
+    <td><%= link_to 'Destroy', yes_vote, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New yes_vote', new_yes_vote_path %>

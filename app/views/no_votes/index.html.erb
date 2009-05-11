@@ -1,0 +1,22 @@
+<h1>Listing no_votes</h1>
+
+<table>
+  <tr>
+    <th>Poll</th>
+    <th>Body</th>
+  </tr>
+
+<% @no_votes.each do |no_vote| %>
+  <tr>
+    <td><%=h no_vote.poll_id %></td>
+    <td><%=h no_vote.body %></td>
+    <td><%= link_to 'Show', no_vote %></td>
+    <td><%= link_to 'Edit', edit_no_vote_path(no_vote) %></td>
+    <td><%= link_to 'Destroy', no_vote, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New no_vote', new_no_vote_path %>

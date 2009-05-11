@@ -1,5 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :polls, :has_many => :votes
+  map.resources :no_votes
+
+  map.resources :polls do |polls|
+    polls.resources :yes_votes
+    polls.resources :no_votes
+  end
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

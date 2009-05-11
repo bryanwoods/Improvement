@@ -3,10 +3,16 @@
 	<%= image_tag @poll.before_pic.url(:large) %>
 	<%= image_tag @poll.after_pic.url(:large) %>
 </p>
-<p>
-	<%= link_to "Vote for Before Pic", @poll.before_pic.url %> | 
-	<%= link_to "Vote for After Pic", @poll.after_pic.url %>
-</p>
 <h3><%=h @poll.description %></h3>
+
+<h3><%= @poll.yes_votes.count %> say this is an improvement. <%= @poll.no_votes.count %> disagree!</h3>
+
+<% form_for [@poll, YesVote.new] do |f| %>
+	<%= f.submit "Vote Yes" %> 
+<% end %>
+<% form_for [@poll, NoVote.new] do |f| %>
+	<%= f.submit "Vote No" %>
+<% end %>
+
 
 <%= link_to 'Back Home', polls_path %>

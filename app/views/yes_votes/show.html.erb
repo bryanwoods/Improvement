@@ -1,0 +1,13 @@
+<p>
+  <b>Poll:</b>
+  <%=h @yes_vote.poll_id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @yes_vote.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_yes_vote_path(@yes_vote) %> |
+<%= link_to 'Back', yes_votes_path %>
