@@ -7,10 +7,10 @@
 
 <h3><%= @poll.yes_votes.count %> say this is an improvement. <%= @poll.no_votes.count %> disagree!</h3>
 
-<% form_for [@poll, YesVote.new] do |f| %>
+<% form_remote_for [@poll, YesVote.new] do |f| %>
 	<%= f.submit "Vote Yes" %> 
 <% end %>
-<% form_for [@poll, NoVote.new] do |f| %>
+<% form_remote_for [@poll, NoVote.new] do |f| %>
 	<%= f.submit "Vote No" %>
 <% end %>
 
