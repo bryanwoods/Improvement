@@ -13,12 +13,17 @@
 	<h3><%=h pluralize(@poll.no_votes.count, 'Vote') %> for no.</h3>
 </div>
 
-<% form_remote_for [@poll, YesVote.new] do |f| %>
-	<%= f.submit "Vote Yes" %> 
+<div id="vote">
+<% form_remote_for [@poll, YesVote.new],
+ 		:before => %(Element.show('vote')),
+		:success => %(Element.hide('vote')) do |f| %>
+	<div id="yes_button"><%= f.submit "Vote Yes" %></div>
 <% end %>
-<% form_remote_for [@poll, NoVote.new] do |f| %>
-	<%= f.submit "Vote No" %>
+<% form_remote_for [@poll, NoVote.new],
+ 		:before => %(Element.show('vote')),
+		:success => %(Element.hide('vote')) do |f| %>
+	<div id="no_button"><%= f.submit "Vote No" %></div>
 <% end %>
-
+</div>
 
 <%= link_to 'Back Home', polls_path %>
