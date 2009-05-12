@@ -1,0 +1,1 @@
+page.replace_html :no_votes, "<h3>" + pluralize(@poll.no_votes.count, 'Vote') + " for no. </h3>"

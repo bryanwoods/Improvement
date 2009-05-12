@@ -1,0 +1,1 @@
+page.replace_html :yes_votes, "<h3>" + pluralize(@poll.yes_votes.count, 'Vote') + " for yes. </h3>"

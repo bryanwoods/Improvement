@@ -5,7 +5,13 @@
 </p>
 <h3><%=h @poll.description %></h3>
 
-<h3><%= @poll.yes_votes.count %> say this is an improvement. <%= @poll.no_votes.count %> disagree!</h3>
+<div id="yes_votes">
+	<h3><%=h pluralize(@poll.yes_votes.count, 'Vote') %> for yes.</h3>
+</div>
+
+<div id="no_votes">
+	<h3><%=h pluralize(@poll.no_votes.count, 'Vote') %> for no.</h3>
+</div>
 
 <% form_remote_for [@poll, YesVote.new] do |f| %>
 	<%= f.submit "Vote Yes" %> 
