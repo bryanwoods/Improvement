@@ -1,4 +1,4 @@
 page.replace_html :yes_votes, "<h3>" + pluralize(@poll.yes_votes.count, 'Vote') + " for yes. </h3>"
-page.visual_effect :highlight, "yes_votes", :duration=> 1
+page.visual_effect :highlight, "yes_votes", :duration => 1, :startcolor => '33FF33'
 page.replace_html :notice, flash[:notice]
 flash.discard

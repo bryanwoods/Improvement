@@ -1,4 +1,4 @@
 page.replace_html :no_votes, "<h3>" + pluralize(@poll.no_votes.count, 'Vote') + " for no. </h3>"
-page.visual_effect :highlight, "no_votes", :duration=> 1
+page.visual_effect :highlight, "no_votes", :duration=> 1, :startcolor => 'FF0033'
 page.replace_html :notice, flash[:notice]
 flash.discard
