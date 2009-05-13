@@ -67,14 +67,29 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 #header {
-	height: 100px;
+	height: 159px;
 }
 
-#header h2 {
+#header h1 {
+	font-size: 159px;
+	
+	margin-bottom: 10px;
 	
 }
 
 /* last poll (most recent) */
+
+#last_after_image {
+	float: left;
+	
+	width: 50%;
+}
+
+#last_before_image {
+	float: left;
+	
+	width: 50%;
+}
 
 #last_description {
 	float:left;
@@ -95,6 +110,12 @@ a:hover { color: #fff; background-color:#000; }
 	min-height: 450px;
 }
 
+#last_poll h3 {
+	float:left;
+	
+	width: 50%;
+}
+
 #last_poll img {
 	margin-left: 15px;
 }
@@ -104,7 +125,7 @@ a:hover { color: #fff; background-color:#000; }
 	
 	text-align: center;
 	
-	margin: 25px 0 0 0;
+	margin: 15px 0;
 	
 	width: 100%;
 	
@@ -112,12 +133,11 @@ a:hover { color: #fff; background-color:#000; }
 
 #last_vote_buttons {
 	margin: 0 auto;
-	width: 196px;
+	width: 180px;
 }
 
 #last_yes_button {
 	float: left;
-	margin-right: 60px;
 }
 
 #last_no_button {
@@ -131,6 +151,35 @@ a:hover { color: #fff; background-color:#000; }
 	margin: 10px auto;
 	
 	width: 100%;
+}
+
+/* stats bar */
+
+#stats {
+	border: 1px solid #ccc;
+	
+	float:left;
+	
+	text-align: left;
+	
+	width: 650px;
+}
+
+#stats_title {
+	float: left;
+	
+	width: 640px;
+	height: 25px;
+}
+
+.bar {
+	
+	padding: 0 0 0 10px;
+}
+
+#stats_stats {
+	padding: 0 0 0 10px;
+
 }
 
 /* poll listing */
@@ -150,6 +199,16 @@ a:hover { color: #fff; background-color:#000; }
 	font-size: 12px;
 	
 	margin: 0;
+}
+
+.listing_images {
+	float: left;
+	
+	width: 100%
+}
+
+.listing_votes {
+	float: left;
 }
 
 #recent_polls {
@@ -183,18 +242,14 @@ a:hover { color: #fff; background-color:#000; }
 	margin: 0 auto;
 }
 
-#yes_votes {
-	margin: 0 auto;
-	width: 50%;
-}
-
-#no_votes {
-	margin: 0 auto;
-	width: 50%;
+#last_vote_count {
+	float: left;
+	
+	margin: 0 10px;
 }
 
 
 .vote_count {
 	float: left;
-	margin-right: 25px;
+	margin-right: 0px;
 }

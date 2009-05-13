@@ -2,10 +2,14 @@
 	<% @polls.reverse.each do |poll| %>
 		<div class="listing">
 			<h2><%= link_to poll.title, poll %></h2>
-			<p>
+			<div class="listing_images">
 				<%= image_tag poll.before_pic.url(:large) %>
 				<%= image_tag poll.after_pic.url(:large) %>
-			</p>
+			</div>
+			<div class="listing_votes">
+			<%=h pluralize(poll.yes_votes.count, 'Yes Vote') %><br />
+			<%=h pluralize(poll.no_votes.count, 'No Vote') %>
+			</div>
   		<!--<h3><%=h poll.description %></h3>-->
 		</div>
 	<% end %>
@@ -13,41 +17,55 @@
 
 <div id="last_poll">
 	<h2><%=h @polls.last.title %></h2>
-		<%= image_tag @polls.last.before_pic.url(:large) %>
-		<%= image_tag @polls.last.after_pic.url(:large) %>
+	<h3>Before</h3><h3>After</h3>
+		<div id="last_before_image">
+			<%= image_tag @polls.last.before_pic.url(:large) %>
+		</div>
+		<div id="last_after_image">
+			<%= image_tag @polls.last.after_pic.url(:large) %>
+		</div>
 	<div id="last_description">
 		<%=h @polls.last.description %>
 	</div>
 	<div id="last_vote">
 		<div id="last_vote_buttons">
-	<% form_remote_for [@polls.last, YesVote.new],
- 			:before => %(Element.show('vote')),
-			:success => %(Element.hide('vote')) do |f| %>
-			<div id="last_yes_button"><%= f.submit "Vote Yes" %>
+			<% form_remote_for [@polls.last, YesVote.new],
+ 				:before => %(Element.show('vote')),
+				:success => %(Element.hide('vote')) do |f| %>
+				<div id="last_yes_button"><%= f.submit "Vote Yes" %>
+			<% end %>
+				</div>
+				<div id="last_vote_count">
+					<div id="yes_votes" class="vote_count">
+						<%=h @polls.last.yes_votes.count %> |&nbsp;
+					</div> 
+					<div id="no_votes" class="vote_count">
+						<%=h @polls.last.no_votes.count %>
+					</div>
+				</div>
+			<% form_remote_for [@polls.last, NoVote.new],
+ 				:before => %(Element.show('vote')),
+				:success => %(Element.hide('vote')) do |f| %>
+				<div id="last_no_button"><%= f.submit "Vote No" %>
 			</div>
-	<% end %>
-	
-	<% form_remote_for [@polls.last, NoVote.new],
- 			:before => %(Element.show('vote')),
-			:success => %(Element.hide('vote')) do |f| %>
-			<div id="last_no_button"><%= f.submit "Vote No" %>
-			</div>
-	<% end %>
+			<% end %>
 		</div>
 	</div>
-
-	<div id="last_votes">
-		<div id="yes_votes" class="vote_count">
-			<h3><%=h pluralize(@polls.last.yes_votes.count, 'Vote') %> for yes.</h3>
+	<div id="stats">
+		<div id="stats_title" class="bar">
+			Stats
 		</div>
-
-		<div id="no_votes" class="vote_count">
-			<h3><%=h pluralize(@polls.last.no_votes.count, 'Vote') %> for no.</h3>
+		<div id="stats_stats">
+			Current Rating: (if yes > no then "Upgrade", if yes < no then "Downgrade" or something funnier, if yes = no then "Neutral")<br />
+			Total Votes:<br />
+			Yes %<br />
+			No %<br />
+			Page Views:<br />
+			Some Kind of Graphs<br />
+			etc
 		</div>
-	</div>
-
+	<br />
 </div>
-
-<br />
+</div>
 
 <%= link_to 'Want to create a poll of your own?', new_poll_path %>
