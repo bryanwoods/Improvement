@@ -1,5 +1,4 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
-include AuthenticatedTestHelper
 
 context "A poll (in general)" do
   setup do
