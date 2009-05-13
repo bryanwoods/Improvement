@@ -15,7 +15,7 @@ context "A No Vote (in general)" do
   protected
     def create_no_vote(options = {})
       record = NoVote.new({  :poll_id => '1', 
-                             :body => 'YES', 
+                             :body => 'NO', 
                              :created_at => 'Wed May 13 11:47:24 -0400 2009', 
                              :updated_at => "#{Time.now}"}.merge(options))
       record.save
