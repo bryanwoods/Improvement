@@ -16,8 +16,8 @@ class Poll < ActiveRecord::Base
    
    # This needs a serious refactor, but let's get it working and tested first
    has_attached_file :after_pic,
-                      :styles => { :large => "800x600>",
-                                   :thumb => "400x300>" },
+                      :styles => { :large => "400x300>",
+                                   :thumb => "200x150>" },
                                    :storage => :s3,
                                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
                                    :s3_permissions => 'public-read',
