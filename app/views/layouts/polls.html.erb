@@ -33,9 +33,17 @@
      \__\/         \__\/      \  \:\      \  \::/   
                                \__\/       \__\/	
 -->
-<div id="notice"><p style="color: green"><%= flash[:notice] %></p></div>
-<h1><%= link_to 'Have I Improved?', root_path %></h1>
-<%= yield %>
 
+<div id="wrapper">
+	<div id="content">
+		<div id="notice"><p style="color: green"><%= flash[:notice] %></p>
+		</div>
+		<div id="header">
+			<h1><%= link_to 'Have I Improved?', root_path %></h1>
+		</div>
+<%= yield %>
+	
+	</div>
+</div>
 </body>
 </html>

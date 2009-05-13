@@ -1,3 +1,5 @@
+/*scaffold*/
+
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
@@ -52,3 +54,147 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+/*default styles */
+
+#wrapper {
+	margin: 0 auto;
+}
+
+#content {
+	width: 850px;
+	margin: 0 auto;
+	
+}
+
+#header {
+	height: 100px;
+}
+
+#header h2 {
+	
+}
+
+/* last poll (most recent) */
+
+#last_description {
+	float:left;
+	
+	margin: 15px 0;
+	
+	width: 100%;
+}
+
+#last_poll {
+	background: #eee;
+	
+	text-align: center;
+	
+	float: left;
+	
+	width: 650px;
+	min-height: 450px;
+}
+
+#last_poll img {
+	margin-left: 15px;
+}
+
+#last_vote {
+	float:left;
+	
+	text-align: center;
+	
+	margin: 25px 0 0 0;
+	
+	width: 100%;
+	
+}
+
+#last_vote_buttons {
+	margin: 0 auto;
+	width: 196px;
+}
+
+#last_yes_button {
+	float: left;
+	margin-right: 60px;
+}
+
+#last_no_button {
+	float: left;
+}
+
+#last_votes {	
+	float:left;
+	
+	text-align: center;
+	margin: 10px auto;
+	
+	width: 100%;
+}
+
+/* poll listing */
+
+.listing {
+	background: ;
+	border: 1px solid #000;
+	
+	padding: 10px;
+	margin: 0 0 15px 0;
+	
+	height: 150px;
+	width: 150px;
+}
+
+.listing h2 {
+	font-size: 12px;
+	
+	margin: 0;
+}
+
+#recent_polls {
+	
+	float: left;
+	
+	margin: 0 25px 0 0;
+	
+	width: 175px;
+}
+
+#recent_polls img {
+	float: left;
+	
+	margin: 5px;
+	
+	width: 60px;
+}
+
+/* vote */
+
+#no_vote_submit {
+	position: relative;
+	
+	margin: 0 auto;
+}
+
+#yes_vote_submit {
+	position: relative;
+	
+	margin: 0 auto;
+}
+
+#yes_votes {
+	margin: 0 auto;
+	width: 50%;
+}
+
+#no_votes {
+	margin: 0 auto;
+	width: 50%;
+}
+
+
+.vote_count {
+	float: left;
+	margin-right: 25px;
+}

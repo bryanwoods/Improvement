@@ -1,11 +1,53 @@
-<% @polls.reverse.each do |poll| %>
-	<h2><%= link_to poll.title, poll %></h2>
-	<p>
-		<%= image_tag poll.before_pic.url(:large) %>
-		<%= image_tag poll.after_pic.url(:large) %>
-	</p>
-  <h3><%=h poll.description %></h3>
-<% end %>
+<div id="recent_polls">
+	<% @polls.reverse.each do |poll| %>
+		<div class="listing">
+			<h2><%= link_to poll.title, poll %></h2>
+			<p>
+				<%= image_tag poll.before_pic.url(:large) %>
+				<%= image_tag poll.after_pic.url(:large) %>
+			</p>
+  		<!--<h3><%=h poll.description %></h3>-->
+		</div>
+	<% end %>
+</div>
+
+<div id="last_poll">
+	<h2><%=h @polls.last.title %></h2>
+		<%= image_tag @polls.last.before_pic.url(:large) %>
+		<%= image_tag @polls.last.after_pic.url(:large) %>
+	<div id="last_description">
+		<%=h @polls.last.description %>
+	</div>
+	<div id="last_vote">
+		<div id="last_vote_buttons">
+	<% form_remote_for [@polls.last, YesVote.new],
+ 			:before => %(Element.show('vote')),
+			:success => %(Element.hide('vote')) do |f| %>
+			<div id="last_yes_button"><%= f.submit "Vote Yes" %>
+			</div>
+	<% end %>
+	
+	<% form_remote_for [@polls.last, NoVote.new],
+ 			:before => %(Element.show('vote')),
+			:success => %(Element.hide('vote')) do |f| %>
+			<div id="last_no_button"><%= f.submit "Vote No" %>
+			</div>
+	<% end %>
+		</div>
+	</div>
+
+	<div id="last_votes">
+		<div id="yes_votes" class="vote_count">
+			<h3><%=h pluralize(@polls.last.yes_votes.count, 'Vote') %> for yes.</h3>
+		</div>
+
+		<div id="no_votes" class="vote_count">
+			<h3><%=h pluralize(@polls.last.no_votes.count, 'Vote') %> for no.</h3>
+		</div>
+	</div>
+
+</div>
+
 <br />
 
 <%= link_to 'Want to create a poll of your own?', new_poll_path %>
