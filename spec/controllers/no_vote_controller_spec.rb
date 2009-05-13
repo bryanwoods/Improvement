@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe NoVotesController do 
+  fixtures :polls
   def create_no_vote(options = {})
     post :create, :no_vote => ({ :poll_id => '1', 
                                  :body => 'NO', 

@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe YesVotesController do 
+  fixtures :polls
   def create_yes_vote(options = {})
     post :create, :yes_vote => ({ :poll_id => '1', 
                                   :body => 'YES', 
