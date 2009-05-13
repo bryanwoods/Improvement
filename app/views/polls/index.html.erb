@@ -1,11 +1,9 @@
-<% @polls.reverse.each do |poll| %>
-	<h2><%= link_to poll.title, poll %></h2>
-	<p>
-		<%= image_tag poll.before_pic.url(:large) %>
-		<%= image_tag poll.after_pic.url(:large) %>
-	</p>
-  <h3><%=h poll.description %></h3>
-<% end %>
-<br />
+<h2><%=h @polls.last.title %></h2>
+<p>
+<%= image_tag @polls.last.before_pic.url(:large) %>
+<%= image_tag @polls.last.after_pic.url(:large) %>
+</p>
+<%=h @polls.last.description %>
 
-<%= link_to 'Want to create a poll of your own?', new_poll_path %>
+
+
