@@ -26,15 +26,4 @@ module PollsHelper
   def no_percent
     no_percent = (current_no.to_f / total_votes.to_f * 100).to_int
   end
-  
-  def site_link
-    case RAILS_ENV
-    when "development":
-      site_link = "http://localhost:3000"
-    when "test":
-      site_link = "http://localhost:3000"
-    when "production":
-      site_link = "http://fitly.gritly.com"
-    end
-  end
 end
