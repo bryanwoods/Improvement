@@ -4,7 +4,7 @@ class YesVotesController < ApplicationController
     @yes_vote = @poll.yes_votes.create!(params[:yes_vote])
     flash[:notice] = "Upvote Attack!"
     respond_to do |format|
-      format.html { redirect_to @poll }
+      format.html { redirect_to polls_path }
       format.js
     end
   end
