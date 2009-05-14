@@ -1,6 +1,7 @@
 <div id="recent_polls">
 	<% @polls.reverse.each do |poll| %>
 		<div class="listing">
+			<h2><%= link_to 'Destroy', poll, :confirm => 'Are you sure?', :method => :delete %></h2>
 			<h2><%= link_to poll.title, poll %></h2>
 			<div class="listing_images">
 				<%= image_tag poll.before_pic.url(:large) %>
