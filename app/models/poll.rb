@@ -2,7 +2,7 @@ class Poll < ActiveRecord::Base
   has_many :yes_votes
   has_many :no_votes
   has_attached_file :before_pic,
-                     :styles => { :large => "400x300>",
+                     :styles => { :large => "300x200>",
                                   :thumb => "200x150>" },
                                   :storage => :s3,
                                   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
@@ -16,7 +16,7 @@ class Poll < ActiveRecord::Base
    
    # This needs a serious refactor, but let's get it working and tested first
    has_attached_file :after_pic,
-                      :styles => { :large => "400x300>",
+                      :styles => { :large => "300x200>",
                                    :thumb => "200x150>" },
                                    :storage => :s3,
                                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
