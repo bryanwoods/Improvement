@@ -5,11 +5,11 @@ context "A Yes Vote (in general)" do
     @yes_vote = YesVote.new
   end
   
-  it "should require a body" do
+  it "should no longer require a body" do
     lambda do
       u = create_yes_vote(:body => nil)
-      u.errors.on(:body).should_not be_nil
-    end.should_not change(YesVote, :count)
+      u.errors.on(:body).should be_nil
+    end.should change(YesVote, :count)
   end
   
   protected
