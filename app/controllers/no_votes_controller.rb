@@ -4,7 +4,7 @@ class NoVotesController < ApplicationController
     @no_vote = @poll.no_votes.create!(params[:no_vote])
     flash[:notice] = "Suck on a No Vote!"
     respond_to do |format|
-      format.html { redirect_to polls_path }
+      format.html { redirect_to @poll }
       format.js
     end
   end
