@@ -8,6 +8,7 @@ class PollsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @polls }
+      format.js
     end
   end
 
@@ -81,5 +82,10 @@ class PollsController < ApplicationController
       format.html { redirect_to(polls_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def show_update
+    # render :text => "Now : #{DateTime.now.to_s}"
+    render :text => "#{poll.yes_votes.count}"
   end
 end
