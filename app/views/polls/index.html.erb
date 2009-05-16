@@ -8,14 +8,15 @@
 				<%= image_tag poll.after_pic.url(:large) %>
 			</div>
 			<div class="listing_votes">
-			<%=h pluralize(poll.yes_votes.count, 'Yes Vote') %><br />
+			<div id="newest_poll_yes_votes">
+				<%=h pluralize(poll.yes_votes.count, 'Yes Vote') %>
+			</div><br />
 			<%=h pluralize(poll.no_votes.count, 'No Vote') %>
 			</div>
   		<!--<h3><%=h poll.description %></h3>-->
 		</div>
 	<% end %>
 </div>
-
 <div id="last_poll">
 	<h2><%=h @polls.last.title %></h2>
 	<h3>Before</h3><h3>After</h3>
@@ -60,7 +61,7 @@
 			<b>Current Rating: <%= current_rating %></b><br />
 			<b>Total Votes: <%= total_votes %></b><br />
 			<b>Yes: <%= yes_percent %>%</b> <br />
-			<b>No: <%= no_percent %>%</b><br />
+			<b>No: <%= no_percent %></b><br />
 			Page Views:<br />
 			Some Kind of Graphs<br />
 			etc
