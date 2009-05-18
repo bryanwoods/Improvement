@@ -77,6 +77,96 @@ a:hover { color: #fff; background-color:#000; }
 	
 }
 
+/* polls */
+
+#poll_content {
+	background: #ccc;
+}
+
+#poll_images {
+	padding: 12px 0;
+	
+	width: 850px;
+	height: 312px;
+}
+
+#poll_images img {
+	border: 2px solid #fff;
+		
+	float: left;
+	margin: 0 10px;
+	
+	width: 400px;
+}
+
+#poll_description {
+	float: left;
+	margin: 25px 12px;
+}
+
+.vote {
+	text-align: center;
+	
+	float:left;
+	margin: 15px 0;
+	
+	width: 100%;	
+}
+
+.vote_buttons {
+	text-align: left;
+	
+	margin: 0 auto;
+	
+	width: 100%;
+}
+
+#poll_vote_buttons {
+	margin: 25px 0 0 100px;
+
+}
+
+#poll_vote_buttons input {
+	margin-right: 25px;
+}
+
+.button {
+	background:#ccc;
+	border: 1px solid #333;
+	
+	font-size: 25px;
+	font-weight: bold;
+	color: #333;
+	
+	float: left;
+	
+	padding: 20px;
+	margin: 0 25px;
+	
+	cursor: pointer;
+}
+
+.button:hover {
+	background: #eee;
+	border: 1px solid #999;
+	
+	color: #999;
+}
+
+.poll_vs {
+	font-size: 40px;
+	font-weight: bold;
+	float: left;
+	
+	padding: 25px; 
+	margin: 0 25px 0 10px;
+}
+
+.vote_count {
+	float:left;
+	width: 100%;
+}
+
 /* last poll (most recent) */
 
 #last_after_image {
@@ -118,30 +208,6 @@ a:hover { color: #fff; background-color:#000; }
 
 #last_poll img {
 	margin-left: 15px;
-}
-
-#last_vote {
-	float:left;
-	
-	text-align: center;
-	
-	margin: 15px 0;
-	
-	width: 100%;
-	
-}
-
-#last_vote_buttons {
-	margin: 0 auto;
-	width: 180px;
-}
-
-#last_yes_button {
-	float: left;
-}
-
-#last_no_button {
-	float: left;
 }
 
 #last_votes {	

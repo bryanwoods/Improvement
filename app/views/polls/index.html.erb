@@ -17,6 +17,7 @@
 		</div>
 	<% end %>
 </div>
+<%= link_to "new poll", new_poll_path %>
 <div id="last_poll">
 	<h2><%=h @polls.last.title %></h2>
 	<h3>Before</h3><h3>After</h3>
@@ -29,12 +30,12 @@
 	<div id="last_description">
 		<%=h @polls.last.description %>
 	</div>
-	<div id="last_vote">
-		<div id="last_vote_buttons">
+	<div id="last_vote" class="vote">
+		<div id="last_vote_buttons" class="vote_buttons">
 			<% form_remote_for [@polls.last, YesVote.new],
  				:before => %(Element.show('vote')),
 				:success => %(Element.hide('vote')) do |f| %>
-				<div id="last_yes_button"><%= f.submit "Vote Yes" %>
+				<div id="last_yes_button" class="yes_button"><%= f.submit "Vote Yes" %>
 			<% end %>
 				</div>
 				<div id="last_vote_count">
@@ -48,7 +49,7 @@
 			<% form_remote_for [@polls.last, NoVote.new],
  				:before => %(Element.show('vote')),
 				:success => %(Element.hide('vote')) do |f| %>
-				<div id="last_no_button"><%= f.submit "Vote No" %>
+				<div id="last_no_button" class="no_button"><%= f.submit "Vote No" %>
 			</div>
 			<% end %>
 		</div>

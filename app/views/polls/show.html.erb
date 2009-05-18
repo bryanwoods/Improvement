@@ -1,29 +1,49 @@
-<h2><%=h @poll.title %></h2>
-<p>
-	<%= image_tag @poll.before_pic.url(:large) %>
-	<%= image_tag @poll.after_pic.url(:large) %>
-</p>
-<h3><%=h @poll.description %></h3>
-
-<div id="yes_votes">
-	<h3><%=h pluralize(@poll.yes_votes.count, 'Vote') %> for yes.</h3>
+<h2><%=h @poll.title %></h2>Upg-rating: <%= yes_percent_show unless yes_percent_show.nil? %>%
+<div id="poll_content">
+	<div id="poll_images">
+		<%= image_tag @poll.before_pic.url(:large) %>
+		<%= image_tag @poll.after_pic.url(:large) %>
+	</div>
 </div>
 
-<div id="no_votes">
-	<h3><%=h pluralize(@poll.no_votes.count, 'Vote') %> for no.</h3>
+<div id="poll_vote" class="vote">
+	<h3>Upgrade?</h3>
+	<div id="poll_vote_buttons" class="vote_buttons">
+		<% form_remote_for [@poll, NoVote.new],
+ 			:before => %(Element.show('vote')),
+			:success => %(Element.hide('vote')) do |f| %>
+			<div id="yes_button" class="da_button">
+				<%= f.submit "Thumbs Down", :class => "button" %>
+			</div>
+		<% end %>
+
+		<div class="poll_vs">
+			OR
+		</div>
+		
+		<% form_remote_for [@poll, YesVote.new],
+			:before => %(Element.show('vote')),
+			:success => %(Element.hide('vote')) do |f| %>
+			<div id="no_button" class="da_button">
+				<%= f.submit "Thumbs Up", :class => "button" %>
+			</div>
+		<% end %>
+	</div>
+	
+	<div id="poll_vote_count" class="vote_count">
+		<div id="yes_votes" class="vote_count">
+			Upgrade: <%=h pluralize(@poll.yes_votes.count, 'Vote') %>
+		</div>
+
+		<div id="no_votes" class="vote_count">
+			Downgrade: <%=h pluralize(@poll.no_votes.count, 'Vote') %>
+		</div>
+	</div>
+	
 </div>
 
-<div id="vote">
-<% form_remote_for [@poll, YesVote.new],
- 		:before => %(Element.show('vote')),
-		:success => %(Element.hide('vote')) do |f| %>
-	<div id="yes_button"><%= f.submit "Vote Yes" %></div>
-<% end %>
-<% form_remote_for [@poll, NoVote.new],
- 		:before => %(Element.show('vote')),
-		:success => %(Element.hide('vote')) do |f| %>
-	<div id="no_button"><%= f.submit "Vote No" %></div>
-<% end %>
+<div id= "poll_description" class= "description">
+	<%=h @poll.description %>
 </div>
 
-<%= link_to 'Back Home', polls_path %>
+<!--<%= link_to 'Back Home', polls_path %>-->
