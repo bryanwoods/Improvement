@@ -37,6 +37,6 @@ module PollsHelper
    end
    
    def pie_chart_link
-     pie_chart_link = "http://chart.apis.google.com/chart?chs=500x200&chd=t:#{yes_percent},#{no_percent}&cht=p3&chl=Upgrade|Downgrade"
+     pie_chart_link = "http://chart.apis.google.com/chart?chs=500x200&chd=t:#{yes_percent},#{no_percent}&cht=p3&chl=Upgrade|Downgrade&chco=00FF00,FF0000"
    end
 end
