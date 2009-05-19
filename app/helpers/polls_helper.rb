@@ -23,7 +23,17 @@ module PollsHelper
     yes_percent = (current_yes.to_f / total_votes.to_f * 100).to_int
   end
   
+  # TODO: Refactor this
+  def yes_percent_show
+    yes_percent_show = ( @poll.yes_votes.count.to_f / ( @poll.yes_votes.count + @poll.no_votes.count ) * 100 ).to_int
+  end
+  
   def no_percent
     no_percent = (current_no.to_f / total_votes.to_f * 100).to_int
   end
+  
+  def no_percent_show
+     no_percent_show = ( @poll.no_votes.count.to_f / ( @poll.yes_votes.count + @poll.no_votes.count ) * 100 ).to_int
+   end
+   
 end
