@@ -35,4 +35,8 @@ module PollsHelper
   def no_percent_show
      no_percent_show = ( @poll.no_votes.count.to_f / ( @poll.yes_votes.count + @poll.no_votes.count ) * 100 ).to_int
    end
+   
+   def pie_chart_link
+     pie_chart_link = "http://chart.apis.google.com/chart?chs=500x200&chd=t:#{yes_percent},#{no_percent}&cht=p3&chl=Upgrade|Downgrade"
+   end
 end

@@ -64,8 +64,13 @@
 			<b>Yes: <%= yes_percent %>%</b> <br />
 			<b>No: <%= no_percent %></b><br />
 			Page Views:<br />
-			Some Kind of Graphs<br />
-			etc
+			<a href="#" onclick="Effect.BlindDown('piechart'); return false;">Pie Chart</a>:<br /> 
+			<center>
+			<div style="display: none" id="piechart">
+				<%= image_tag pie_chart_link %>
+			</div>
+			</center>
+			<br />
 		</div>
 	<br />
 </div>
