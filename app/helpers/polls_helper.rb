@@ -35,5 +35,4 @@ module PollsHelper
   def no_percent_show
      no_percent_show = ( @poll.no_votes.count.to_f / ( @poll.yes_votes.count + @poll.no_votes.count ) * 100 ).to_int
    end
-   
 end
