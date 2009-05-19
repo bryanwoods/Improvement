@@ -46,4 +46,22 @@
 	<%=h @poll.description %>
 </div>
 
+<div id="stats">
+	<div id="stats_title" class="bar">
+		Stats
+	</div>
+	<div id="stats_stats">
+		<b>Current Rating: <%= current_rating_show %></b><br />
+		<b>Total Votes: <%= total_votes_show %></b><br />
+		<b>Yes: <%= yes_percent_show %>%</b> <br />
+		<b>No: <%= no_percent_show %>%</b><br />
+		Page Views:<br />
+		<a href="#" onclick="Effect.BlindDown('piechart'); return false;">Pie Chart</a>:<br /> 
+		<center>
+		<div style="display: none" id="piechart">
+			<%= image_tag pie_chart_show_link %>
+		</div>
+		</center>
+		<br />
+	</div>
 <!--<%= link_to 'Back Home', polls_path %>-->
