@@ -1,3 +1,13 @@
+<script type="text/javascript">
+	//demo script
+	$(function(){
+		if($.browser.msie) setTimeout(function(){$.fgCharting();}, 2000);
+		else $.fgCharting();
+		});
+
+</script>
+
+
 <div id="recent_polls">
 	<% @polls.reverse.each do |poll| %>
 		<div class="listing">
@@ -19,42 +29,99 @@
 	<% end %>
 </div>
 <%= link_to "new poll", new_poll_path %>
-<div id="last_poll">
-	<h2><%=h @polls.last.title %></h2>
-	<h3>Before</h3><h3>After</h3>
-		<div id="last_before_image">
-			<%= image_tag @polls.last.before_pic.url(:large) %>
-		</div>
-		<div id="last_after_image">
-			<%= image_tag @polls.last.after_pic.url(:large) %>
-		</div>
-	<div id="last_description">
-		<%=h @polls.last.description %>
+<div id="last_poll_wrapper">
+	<table id="last_poll">
+		<thead>
+			<%=h @polls.last.title %>
+		</thead>
+		<tr id="last_poll_image_headers">
+			<td>
+				Before
+			</td>
+			<td>
+				After
+			</td>
+		</tr>
+		<tr id="last_poll_images">
+			<td>
+				<%= image_tag @polls.last.before_pic.url(:large) %>
+			</td>
+			<td>
+				<%= image_tag @polls.last.after_pic.url(:large) %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+					<% form_remote_for [@polls.last, YesVote.new],
+		 				:before => %(Element.show('vote')),
+						:success => %(Element.hide('vote')) do |f| %>
+						<%= f.submit "Vote Yes", :class => :vote_button %>
+					<% end %>
+				</td>
+				<td>
+					<% form_remote_for [@polls.last, NoVote.new],
+		 				:before => %(Element.show('vote')),
+						:success => %(Element.hide('vote')) do |f| %>
+						<%= f.submit "Vote No", :class => :vote_button %>
+					<% end %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%=h @polls.last.yes_votes.count %>
+				</td>
+				<td>
+					<%=h @polls.last.no_votes.count %>
+				</td>
+			</tr>
+		</table>
 	</div>
-	<div id="last_vote" class="vote">
-		<div id="last_vote_buttons" class="vote_buttons">
-			<% form_remote_for [@polls.last, YesVote.new],
- 				:before => %(Element.show('vote')),
-				:success => %(Element.hide('vote')) do |f| %>
-				<div id="last_yes_button" class="yes_button"><%= f.submit "Vote Yes" %>
-			<% end %>
-				</div>
-				<div id="last_vote_count">
-					<div id="yes_votes" class="vote_count">
-						<%=h @polls.last.yes_votes.count %> |&nbsp;
-					</div> 
-					<div id="no_votes" class="vote_count">
-						<%=h @polls.last.no_votes.count %>
-					</div>
-				</div>
-			<% form_remote_for [@polls.last, NoVote.new],
- 				:before => %(Element.show('vote')),
-				:success => %(Element.hide('vote')) do |f| %>
-				<div id="last_no_button" class="no_button"><%= f.submit "Vote No" %>
+	<div id="stats_wrapper">
+		<table id="dataTable" summary="">
+			<thead>
+				<tr>
+					<th id="Yes"></th>
+					<th id="No"></th>
+				</tr>
+			</thead>
+			<!--messing with structure of this part will break stuff-->
+			<tbody>
+				<tr>
+					<th headers="Yes Votes">Yes</th>
+					<td headers="Yes"><%=h @polls.last.yes_votes.count %></td>
+				</tr>
+				<tr>
+					<th headers="No Votes">No</th>
+					<td headers="No"><%=h @polls.last.no_votes.count %></td>
+				</tr>
+			</tbody>
+		</table>
+		<!--tried tables here, was bugging out the chart resizing-->
+		<div id="charts">
+			<div id="pie">
+				<!--have to define w/h here, not stylesheet (safari bug)-->	
+				<canvas id="pie_chart" class="fgCharting_src-dataTable_type-pie" width="150" height="150"></canvas>
+				<!--bar width edited in fgCharting.js-->
+				<canvas id="bar_graph" class="fgCharting_src-dataTable_type-bar" width="150" height="150" style="padding-left:20px"></canvas>
+				
 			</div>
-			<% end %>
 		</div>
-	</div>
-	<br />
+	</div>	
 </div>
 </div>
+<script type="text/javascript">
+	//demo script
+	$(function(){
+		$('body').addClass('hasJS');
+				$.fgCharting();
+			});
+			return false;
+		});
+		
+		if($.browser.msie) setTimeout(function(){$.fgCharting();}, 2000);
+		else $.fgCharting();
+
+
+
+	});
+</script>
